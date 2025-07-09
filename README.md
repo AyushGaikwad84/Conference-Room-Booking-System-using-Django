@@ -103,8 +103,8 @@ To Do (Future Updates):
 Developer Info:
 ---------------
 Created by Ayush  
-GitHub: github.com/your-username  
-Email: your.email@example.com
+GitHub: github.com/AyushGaikwad84  
+Email: ayushsgaikwad8480@gmail.com
 
 Note:
 -----
