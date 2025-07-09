@@ -1,0 +1,22 @@
+
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <title>Conference room booking System</title>
+</head>
+<body>
+    <div class="logo">
+        <h1>ConferenceHub</h1>
+    </div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="#">About</a>
+        <a href="{% url 'rooms' %}">Rooms</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'signup' %}">Signup</a>
+    </nav>
+</body>
+</html>

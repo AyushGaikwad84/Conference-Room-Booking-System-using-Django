@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<style>
+form {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s ease;
+}
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.signup_href{
+    margin-bottom: 30px;
+    display: block;
+    text-align: center;
+}
+
+.signup_href a {
+    padding: 10px 25px;
+    margin-top: 10px;
+    color: #007BFF;
+    background-color: rgb(221, 241, 255);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup_href a:hover {
+    text-decoration: none;
+    color: #007bff;
+    background-color: #b9cbdf;
+}
+
+.error_msg
+{
+    padding: 20px 40px;
+    background-color: #b9cbdf;
+}
+
+p {
+    text-align: center;
+    font-size: 0.95rem;
+}
+</style>
+
+{% if msg %}
+<div class="error_msg">
+<p style="color:red; text-align:center;">{{ msg }}</p>
+</div>
+{% endif %}
+
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="logname" placeholder="Enter Username">
+    <input type="text" name="logpass" placeholder="Enter Password">
+    <button type="submit">Log in</button>
+</form>
+<div class="signup_href">
+<a href="{% url 'signup' %}">Sign up</a>
+</div>
+
+{% endblock %}

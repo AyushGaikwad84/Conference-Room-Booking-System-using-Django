@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    form {
+    width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+ h2 {
+    margin-top: 13px;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<h2>Contact us for any query</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label>Enter Name:</label>
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <label>Enter Email:</label>
+    <input type="email" name="email" placeholder="Enter Email" required> 
+    <label>Contact number:</label>
+    <input type="text" name="contact_number" minlength="10" maxlength="11" placeholder="Contact Number" required>
+    <label>Message:</label>
+    <input type="text" name="msg" placeholder="Message or Sugestion ?">
+    <button type="submit" onclick="alert('Thanks for Contacting us.')">Submit</button>
+
+</form>
+{% if messages %}
+    {% for message in messages %}
+        <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

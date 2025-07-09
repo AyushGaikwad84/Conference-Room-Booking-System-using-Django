@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+    a{
+        text-decoration: none;
+    }
+    a:hover{
+        background-color: rgb(132, 210, 255);
+    }
+    .page-title {
+    text-align: center;
+    margin-top: 30px;
+    color: #2c3e50;
+    font-size: 2.2rem;
+}
+
+.rooms-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 40px 20px;
+}
+
+.room-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    width: 300px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-8px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.room-card h3 {
+    margin: 15px 0 5px;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.room-card p {
+    color: #555;
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+</style>
+<h1 class="page-title">Available Conference Rooms</h1>
+
+<div class="rooms-container">
+    <a href="/book-room/1/" class="room-card-link">
+        <div class="room-card" id="1">
+        <img src="static/images/executive_room.jpg" alt="Room 1">
+        <h3>Executive Room</h3>
+        <p>₹1500 / hour</p>
+        <p>Capacity: 10 people</p>
+    </div>
+    </a>
+    <a href="/book-room/2/" class="room-card-link">
+    <div class="room-card" id="2">
+        <img src="static/images/premium_room.jpg" alt="Room 2">
+        <h3>Meeting Hub</h3>
+        <p>₹1200 / hour</p>
+        <p>Capacity: 8 people</p>
+    </div>
+    </a>
+    <a href="/book-room/3/" class="room-card-link">
+    <div class="room-card" id="3">
+        <img src="static/images/team_room.jpg" alt="Room 3">
+        <h3>Team Room</h3>
+        <p>₹1000 / hour</p>
+        <p>Capacity: 6 people</p>
+    </div>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,179 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+        color: #2c3e50;
+        font-size: 2rem;
+    }
+    .roomnotfound{
+        text-align: center;
+        color: #007BFF;
+        margin: 150px;
+    }
+
+    .room-info, form {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 25px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .room-info input,
+    form input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    label {
+        font-weight: 600;
+        color: #333;
+        margin-top: 10px;
+        display: block;
+    }
+
+    input[readonly] {
+        background-color: #e9ecef;
+        font-weight: bold;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    button {
+        padding: 12px;
+        font-size: 1rem;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .payment-confirm {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.payment-confirm input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #007BFF; /* Bootstrap Blue */
+}
+
+.payment-confirm label {
+    cursor: pointer;
+    user-select: none;
+}
+.error_msg
+{
+    padding: 20px 40px;
+    background-color: #b9cbdf;
+}
+</style>
+
+{% if msg %}
+<div class="error_msg">
+<p style="color:red; text-align:center;">{{ msg }}</p>
+</div>
+{% endif %}
+
+{% if room %}
+
+<h2>Book Room</h2>
+
+<div class="room-info">
+    <label>Room Name:</label>
+    <input type="text" value="{{ room.title }}" readonly>
+
+    <label>Price:</label>
+    <input type="text" value="₹{{ room.price }}" readonly>
+
+    <label>Capacity:</label>
+    <input type="text" value="{{ room.capacity }} people" readonly>
+</div>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="name">Full Name:</label>
+    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+    <label for="mbno">Mobile Number:</label>
+    <input type="text" id="mbno" name="mbno" placeholder="Enter mobile number" required>
+
+    <label for="booking_date">Booking Date:</label>
+    <input type="date" id="booking_date" name="booking_date" required> 
+
+    <label for="start_time">Start Time:</label>
+    <input type="time" id="start_time" name="start_time" required> 
+
+    <label for="end_time">End Time:</label>
+    <input type="time" id="end_time" name="end_time" required> 
+    
+    <label for="extras">Extras:</label>
+    <input type="text" name="extras" placeholder="want Add on? (optional)">
+
+    <label for="scanner">Scan here:</label>
+    <img src="/static/images/qrcode_github.com.png" alt="Scanner image" name="scanner" width="200px" height="200px">
+
+   <div class="payment-confirm">
+        <input type="checkbox" id="paid" required>
+        <label for="paid">I have Paid</label>
+    </div>
+
+    <button type="submit">Pay Now</button>
+</form>
+
+{% else %}
+<div class="roomnotfound">
+    <h1>{{ roomnotfound }}</h1>
+</div>
+{% endif %}
+
+{% if toast %}
+<div id="toast" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #28a745;
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 1000;
+">
+    {{ toast }}
+</div>
+<script>
+    setTimeout(function(){
+        document.getElementById('toast').style.display = 'none';
+    }, 3000);
+</script>
+{% endif %}
+{% endblock %}
