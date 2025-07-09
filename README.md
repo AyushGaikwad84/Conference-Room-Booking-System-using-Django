@@ -2,17 +2,30 @@ Conference Room Booking System
 ------------------------------
 
 This is my first Django project built using Python and Django framework. It's a simple conference room booking platform where users can sign up, log in, contact admin, and book a room for meetings.
+**Home Page**
 ![Screenshot 2025-07-09 224413](https://github.com/user-attachments/assets/4eacef25-8feb-4314-8c38-0533435d53f4)
+
 
 ![Screenshot 2025-07-09 224513](https://github.com/user-attachments/assets/297e4f4f-ee8f-4aae-8aae-8b077fea2d24)
 
+
 ![Screenshot 2025-07-09 224456](https://github.com/user-attachments/assets/929f3e4f-e2a3-4e69-aaa4-f213dff50b6d)
+
 
 ![Screenshot 2025-07-09 224537](https://github.com/user-attachments/assets/c0dc6cdd-6eaf-4949-912f-6b05a1c77db2)
 
+
+
+***Admin View -***
+
+Admin Panel to manage user and booking data
+
+
 ![Screenshot 2025-07-09 224720](https://github.com/user-attachments/assets/63e1bf7a-901f-42e5-84e5-789b1ed6f96e)
 
+
 ![Screenshot 2025-07-09 224900](https://github.com/user-attachments/assets/ca4bdb67-b89e-4cf4-87a5-a0cec4d3acf1)
+
 
 
 Key Features:
@@ -23,7 +36,6 @@ Key Features:
 - Room Booking Form with time/date and mobile validations
 - Manual Payment Confirmation via checkbox
 - Admin Panel to manage user and booking data
-- 404 error handling
 - Responsive navigation and basic styling
 - Welcome message and logout option in navbar
 - Form data stored in the database and visible in admin
